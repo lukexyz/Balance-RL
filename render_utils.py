@@ -68,7 +68,10 @@ def plot_environment(env, figsize=(5, 4)):
     plt.show()
 
 
-def render_cart_pole(env, obs, step):
+# ----------------------------- Custom HUD -----------------------------------
+
+
+def render_cart_pole(env, obs, step, action_val):
     if not openai_cart_pole_rendering:
         # use OpenAI gym's rendering function
         return env.render(mode="rgb_array")
@@ -94,14 +97,56 @@ def render_cart_pole(env, obs, step):
         top_pole_x = cart_x + pole_len * np.sin(ang)
         top_pole_y = cart_y - cart_h // 2 - pole_len * np.cos(ang)
         draw.line((0, cart_y, img_w, cart_y), fill=0)
-        draw.rectangle((cart_x - cart_w // 2, cart_y - cart_h // 2, cart_x + cart_w // 2, cart_y + cart_h // 2),
-                       fill=cart_col)  # draw cart
         draw.line((cart_x, cart_y - cart_h // 2, top_pole_x, top_pole_y), fill=pole_col, width=pole_w)  # draw pole
 
         # --------------- Render HUD --------------------
         font = ImageFont.truetype("arial.ttf", 18)
 
+
+        # draw.text((200, 200), str(action_val), font=font, fill=(255, 0, 0, 255))  # Left/right action
+        # draw.text((200, 150), 'x_pos: {:0.4f}\n step:{}'
+        #           .format(obs[0], step),
+        #           font=font, fill=(255, 0, 0, 255))
+
+        draw.line((cart_x, cart_y - cart_h // 2, top_pole_x, top_pole_y), fill=pole_col, width=pole_w)
+
+        if action_val == 1:
+            cart_p1 = (cart_x - cart_w // 2, cart_y - cart_h // 3)
+            cart_p2 = (cart_x - cart_w // 2, cart_y + cart_h // 3)
+            arrow_point = (cart_x - cart_w // 1.3, cart_y)
+            draw.polygon([cart_p1, cart_p2, arrow_point], fill=(255, 0, 0))  # draw thrust arrow left
+        else:
+            cart_p3 = (cart_x + cart_w // 2, cart_y - cart_h // 3)
+            cart_p4 = (cart_x + cart_w // 2, cart_y + cart_h // 3)
+            arrow_point_r = (cart_x + cart_w // 1.3, cart_y)
+            draw.polygon([cart_p3, cart_p4, arrow_point_r], fill=(255, 0, 0))  # draw thrust arrow right
+
+
+        draw.rectangle((cart_x - cart_w // 2, cart_y - cart_h // 2, cart_x + cart_w // 2, cart_y + cart_h // 2),
+                       fill=cart_col)  # draw cart
         draw.text((cart_x - cart_w // 2 + 22 - 4 * len(str(step)), 370), str(step), font=font,
                   fill=(255, 255, 255, 255))
 
         return np.array(img)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
