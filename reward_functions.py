@@ -10,21 +10,20 @@ def discount_rewards(rewards, discount_rate, obs):
 
     discounted_rewards = np.zeros(len(rewards))
     cumulative_rewards = 0
-    phi = 2
+    phi = 1.0
 
-    #print('step, obs[step], rewards[step], drift_penalty, cumulative_rewards, discounted_rewards[step]')
+    # print('step, obs[step], rewards[step], drift_penalty, cumulative_rewards, discounted_rewards[step]')
 
     for step in reversed(range(len(rewards))):
         # Prevent DRIFT by adding penalty (distance from centre)
-
         drift_penalty = phi * abs(obs[step][0])
 
-        #drift_penalty = 0.5 if abs(obs[step][0]) > 0.3 else 0
-
+        # drift_penalty = max(0.2, phi * abs(obs[step][0]))
+        # drift_penalty = 0.5 if abs(obs[step][0]) > 0.3 else 0
 
         cumulative_rewards = rewards[step] + cumulative_rewards * discount_rate - drift_penalty
         discounted_rewards[step] = cumulative_rewards
-        #print(step, obs[step], rewards[step], drift_penalty, cumulative_rewards, discounted_rewards[step])
+        # print(step, obs[step], rewards[step], drift_penalty, cumulative_rewards, discounted_rewards[step])
 
     return discounted_rewards
 
