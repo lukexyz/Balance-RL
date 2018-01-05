@@ -104,9 +104,9 @@ def render_cart_pole(env, obs, step, action_val):
 
 
         # draw.text((100, 200), str(action_val), font=font, fill=(255, 0, 0, 255))  # Left/right action
-        draw.text((0, 100), 'x_pos {:0.4f}\nstep     {}'
-                  .format(obs[0], step),
-                  font=font, fill=(150, 150, 150, 255))
+        # draw.text((0, 100), 'x_pos {:0.4f}\nstep     {}'
+        #           .format(obs[0], step),
+        #           font=font, fill=(150, 150, 150, 255))
 
         draw.line((cart_x, cart_y - cart_h // 2, top_pole_x, top_pole_y), fill=pole_col, width=pole_w)
 
