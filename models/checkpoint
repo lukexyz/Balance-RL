@@ -1,0 +1,4 @@
+model_checkpoint_path: "my_policy_net_pg_500epoch.ckpt"
+all_model_checkpoint_paths: "my_policy_net_pg_100epoch.ckpt"
+all_model_checkpoint_paths: "..\\model\\my_policy_net_pg_500epoch.ckpt"
+all_model_checkpoint_paths: "my_policy_net_pg_500epoch.ckpt"
