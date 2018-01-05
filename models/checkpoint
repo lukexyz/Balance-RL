@@ -1,4 +1,3 @@
-model_checkpoint_path: "my_policy_net_pg_500epoch.ckpt"
-all_model_checkpoint_paths: "my_policy_net_pg_100epoch.ckpt"
-all_model_checkpoint_paths: "..\\model\\my_policy_net_pg_500epoch.ckpt"
-all_model_checkpoint_paths: "my_policy_net_pg_500epoch.ckpt"
+model_checkpoint_path: "policy-grad-drift-penalty_home.ckpt"
+all_model_checkpoint_paths: "policy-grad-drift-penalty_500.ckpt"
+all_model_checkpoint_paths: "policy-grad-drift-penalty_home.ckpt"
