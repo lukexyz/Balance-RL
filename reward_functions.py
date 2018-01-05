@@ -35,3 +35,10 @@ def discount_and_normalize_rewards(all_rewards, all_obs, discount_rate):
     reward_mean = flat_rewards.mean()
     reward_std = flat_rewards.std()
     return [(discounted_rewards - reward_mean)/reward_std for discounted_rewards in all_discounted_rewards]
+
+
+"""
+New reward function:
+    Add penalty for (-theta) and (+momentum)
+    or the inverse: (+theta) and (-momentum)
+"""
