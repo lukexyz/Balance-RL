@@ -6,9 +6,9 @@ Cart and pole reinforcement learning (using TensorFlow and OpenAI)
 
 Primitive learning strategy
 
-1. ```If pole angle is positive, move left```
+1. ```If pole angle is negative, move left```
 
-2. ```If pole angle is negative, move right```
+2. ```If pole angle is positive, move right```
 
 ![cart pole alt text](https://github.com/lukexyz/Balance-RL/blob/master/img/001_left-right.gif?raw=true)
 
