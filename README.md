@@ -1,4 +1,4 @@
-# Balance
+# :aerial_tramway: Balance RL
 Cart and pole Reinforcement Learning (using `TensorFlow` and `OpenAI`). The goal is to balance the pole upright by only controlling the cart with left or right momentum. A policy gradient and reward function are used to penalise poor behaviour (falling over), and reward the desired behaviour (balancing in place).
 
 
