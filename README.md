@@ -25,4 +25,4 @@ The cart initially starts well with quick error corrections, however once a term
 
 </P>
 
-(more to come)
+
